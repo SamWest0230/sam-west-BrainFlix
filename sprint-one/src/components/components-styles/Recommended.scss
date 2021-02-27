@@ -1,0 +1,19 @@
+.recommended{
+
+    &__video{
+        display: flex;
+        height: 70px;
+
+        &--pic{
+            width: 50%;
+        }
+
+        &--info{
+            width: 50%;
+        }
+        
+    }
+
+
+
+}
