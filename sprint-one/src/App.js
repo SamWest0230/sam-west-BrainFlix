@@ -22,18 +22,11 @@ videoSelector = (id) => {
     
   });
   this.setState(
-    {...this.state, selectedVideo: newSlectedVideo}
+    {
+      selectedVideo: newSlectedVideo,
+    }
   )
 }
-
-
- 
-// date = () => {
-// this.retriveComments.timestamp = new Date(this.retriveComments.timestamp).toDateString();
-// console.log(this.retriveComments.timestamp)
-//  }
- 
-
 
   render(){
     const retriveComments = this.state.selectedVideo.comments;
@@ -45,7 +38,7 @@ videoSelector = (id) => {
      <Header  />
      
 
-     <Video videos={this.state.selectedVideo}/>
+     <Video videos={this.state.selectedVideo}  />
      
      <Form />
      
@@ -66,10 +59,7 @@ videoSelector = (id) => {
     
 
 export default App;
-// {retriveComments.map(props => {
-//   return(
-//  <Comments name={props.name} timestamp={props.timestamp} comment={props.comment} />
-// )})}
+
 
 
 

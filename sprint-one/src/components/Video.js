@@ -5,7 +5,13 @@ function Video (props){
 
     const {image, title, channel, timestamp, views, likes, description} = props.videos
 
-
+    
+        let newDay = (time) => {
+        let day = time;
+        const newDate = new Date(day).toDateString();
+        console.log(newDate);
+        return newDate;
+        }
         return(
             <>
             <video className="actualVideo" poster={image} controls></video>
@@ -15,7 +21,7 @@ function Video (props){
             <div className='video__div'>
             <div className='video__infobox'>
             <h2 className='vide0__infobox--channel'>{channel}</h2>
-            <h4 className="video__infobox--timestamp">{timestamp}</h4>
+            <h4 className="video__infobox--timestamp">{newDay(timestamp)}</h4>
             </div>
             <div className="video__stats">
                 <h3 className="video__stats--views">{views}</h3>

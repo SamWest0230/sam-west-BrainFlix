@@ -4,6 +4,13 @@ import userPic from '.././assets/images/150.png'
 
 
 function Comments(props){
+
+    let newDay = (time) => {
+        let day = time;
+        const newDate = new Date(day).toDateString();
+        console.log(newDate);
+        return newDate;
+    }
     return(
         <section className='comments'>
 
@@ -13,7 +20,7 @@ function Comments(props){
                 <img className="comments__box--pic" src={userPic}></img>
                 <div className='comments__box2'>
                     <h3 className="comments__box2--name">{props.name}</h3>
-                    <h4 className='comments__box2--date'>{props.timestamp}</h4>
+                    <h4 className='comments__box2--date'>{newDay(props.timestamp)}</h4>
                     <h4 className='comments__box2--content'>{props.comment}</h4>
                 </div>
             </div>
