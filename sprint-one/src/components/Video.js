@@ -12,7 +12,7 @@ function Video (props){
             
             <section className="video">
             <h1 className='video__title'>{title}</h1>
-
+            <div className='video__div'>
             <div className='video__infobox'>
             <h2 className='vide0__infobox--channel'>{channel}</h2>
             <h4 className="video__infobox--timestamp">{timestamp}</h4>
@@ -21,8 +21,11 @@ function Video (props){
                 <h3 className="video__stats--views">{views}</h3>
                 <h3 className='video__stats--likes'>{likes}</h3>
             </div>
+            </div>
             <div className="video__description"> 
+                <div className="video__description--content">
                 <h4>{description}</h4>
+                </div>
             </div>
             </section>
             </>
