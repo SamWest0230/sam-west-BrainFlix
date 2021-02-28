@@ -1,15 +1,25 @@
+@use '../.././partials/variables' as *;
 .recommended{
-
+    padding: $mobile-padding;
+    
     &__video{
         display: flex;
         height: 70px;
+        margin-bottom: 2.5rem;
 
         &--pic{
-            width: 50%;
+            border-radius: 5px;
+            width: 120px;
+            height: 70px;
         }
 
         &--info{
-            width: 50%;
+            width: 48.75vw;
+          padding-left: 1rem;
+
+          &-title{
+              padding-bottom: 1rem;
+          }
         }
         
     }

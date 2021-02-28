@@ -5,6 +5,7 @@ import Recommended from './components/Recommended'
 import VideoData from './Data/video-details.json'
 import recommendedData from './Data/videos.json'
 import Video from './components/Video'
+import Form from './components/Form'
 import Comments from './components/Comments'
 
 class App extends React.Component {
@@ -35,10 +36,9 @@ videoSelector = (id) => {
 
 
   render(){
-    const retriveComments = this.state.selectedVideo.comments
+    const retriveComments = this.state.selectedVideo.comments;
     const listOfVideos = this.state.recommendedVideos.filter(video =>{
       return video.id !== this.state.selectedVideo.id;
-      
     })
   return (
     <div className="App">
@@ -47,18 +47,16 @@ videoSelector = (id) => {
 
      <Video videos={this.state.selectedVideo}/>
      
-     {retriveComments.map(props => {
-       return(
-      <Comments name={props.name} timestamp={props.timestamp} comment={props.comment} />
-     )})}
+     <Form />
      
-     {listOfVideos.map(props => {
+    <Comments listOfComments={retriveComments} />
+     
+    {listOfVideos.map(props =>{
     return(
-     <Recommended videoselect={this.videoSelector} id={props.id} image={props.image} title={props.title} channel={props.channel}/>
-   )
-    })}
-    
+    <Recommended videoselect={this.videoSelector} id={props.id} image={props.image} title={props.title} channel={props.channel} />
+    ) })}
 
+   
     </div>
   );
   }
@@ -68,7 +66,11 @@ videoSelector = (id) => {
     
 
 export default App;
-  
+// {retriveComments.map(props => {
+//   return(
+//  <Comments name={props.name} timestamp={props.timestamp} comment={props.comment} />
+// )})}
 
 
-{/* <Recommended videos={listOfVideos} /> */}
+
+

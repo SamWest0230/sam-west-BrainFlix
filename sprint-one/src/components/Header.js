@@ -7,10 +7,12 @@ import './components-styles/Header.scss'
 function Header(props) {
     return(
         <header className="header">
-        <img className="header__logo" src={logo}></img>
+        <div className='header__container'>
+        <img className="header__container--logo" src={logo}></img>
+        </div>
         <input className="header__search" type="text" placeholder="Search..."></input>
         <div className="header__user"> 
-        <button className="header__button">Upload</button>
+        <button className="header__button">+ Upload</button>
         <img className="header__userPic" src={userPic}></img>
         </div>
         </header>

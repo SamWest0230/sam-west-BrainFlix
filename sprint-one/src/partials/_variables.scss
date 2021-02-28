@@ -1,0 +1,30 @@
+$cp-black: #323232;
+$cp-white: #FFFFFF;
+$cp-silver: #AFAFAF;
+$cp-beige: #FAFAFA;
+$cp-blue: #0095FF;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1280px;
+$mobile-padding: 0 5% 0 5%;
+$tablet-padding: 0 3.2% 0 3.2%;
+$desktop-padding: 0 7.8% 0 7.8%;
+
+
+@font-face{
+    font-family: 'AvenirNextLTPro';
+    src: url(.././assets/fonts/AvenirNextLTPro-Regular.woff2);
+    font-style: 'light';
+    font-weight: 100;
+}
+@font-face{
+    font-family: 'AvenirNextLTPro';
+    src: url(.././assets/fonts/AvenirNextLTPro-Demi.woff2);
+    font-style: 'regular';
+    font-weight: 400;
+}
+@font-face{
+    font-family: 'AvenirNextLTPro';
+    src: url(.././assets/fonts/AvenirNextLTPro-Bold.woff2);
+    font-style: 'bold';
+    font-weight: 700;
+}

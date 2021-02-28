@@ -1,9 +1,19 @@
-{/* <h2>3 comments</h2>
-        <div className='comments__div'>
-            <img className='comments__div--pic' src={userPic}></img>
-        <form className='comments__form'>
-            <label>JOIN THE CONVERSATION</label>
-            <input type='text'/>
-            <input type='submit'/>
-        </form>
-        </div> */}
+import './components-styles/Form.scss'
+import userPic from '.././assets/images/Mohan-muruge.jpg'
+
+function Form () {
+    return(
+        <section className="form">
+        <h2 className='form__commentCounter'>3 comments</h2>
+        <div className='form__container'>
+            <img className='form__container--pic' src={userPic}></img>
+            <form className='form__container--form'>
+            <label><h4>JOIN THE CONVERSATION</h4></label>
+            <input className='form__container--form-text' type='text'/>
+            <input className='form__container--form-btn' type='submit' value='COMMENT'/>
+            </form>
+        </div> 
+        </section>
+    )
+}
+export default Form;

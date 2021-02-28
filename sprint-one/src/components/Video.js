@@ -7,23 +7,25 @@ function Video (props){
 
 
         return(
+            <>
+            <video className="actualVideo" poster={image} controls></video>
+            
             <section className="video">
-                <video className="video__Player" poster={image} controls></video>
             <h1 className='video__title'>{title}</h1>
 
             <div className='video__infobox'>
             <h2 className='vide0__infobox--channel'>{channel}</h2>
-            <h4>{timestamp}</h4>
+            <h4 className="video__infobox--timestamp">{timestamp}</h4>
             </div>
-            <div>
-                <h3>{views}</h3>
-                <h3>{likes}</h3>
+            <div className="video__stats">
+                <h3 className="video__stats--views">{views}</h3>
+                <h3 className='video__stats--likes'>{likes}</h3>
             </div>
-            <div>
-                <p>{description}</p>
+            <div className="video__description"> 
+                <h4>{description}</h4>
             </div>
             </section>
-
+            </>
 
         )
 

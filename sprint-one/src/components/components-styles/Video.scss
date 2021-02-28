@@ -1,8 +1,44 @@
+@use '../.././partials/variables' as *;
+
+
+.actualVideo{
+    width: 100%;
+   height: 57vw; 
+}
+
+
 .video{
+    padding: $mobile-padding;
+    display: flex;
+    flex-direction: column;
 
+    
 
-    &__Player{
-        width: 100%;
-       height: 57vw; 
+    &__title{
+        padding: 2rem 0 1rem 0;
+    }
+
+    &__infobox{
+        display: flex;
+        align-items: center;
+        padding-bottom: 2rem;
+
+        &--timestamp{
+            padding-left: .5rem;
+        }
+    }
+
+    &__stats{
+        display: flex;
+        align-items: center;
+        padding-bottom: 1.5rem;
+
+        &--views{
+            padding-right: 2rem;
+        }
+    }
+    &__description{
+        border-top: 1px solid $cp-silver;
+        padding: 1.5rem 0 2.5rem 0;
     }
 }
