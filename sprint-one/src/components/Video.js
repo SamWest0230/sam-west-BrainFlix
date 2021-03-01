@@ -1,6 +1,7 @@
 import React from 'react'
 import './components-styles/Video.scss'
-
+import likes1 from '.././assets/icons/Icon-likes.svg'
+import eye from '.././assets/icons/Icon-views.svg'
 function Video (props){
 
     const {image, title, channel, timestamp, views, likes, description} = props.videos
@@ -26,7 +27,9 @@ function Video (props){
             <h4 className="video__infobox--timestamp">{newDay(timestamp)}</h4>
             </div>
             <div className="video__stats">
+                <img src={eye} />
                 <h3 className="video__stats--views">{views}</h3>
+                <img src={likes1}/>
                 <h3 className='video__stats--likes'>{likes}</h3>
             </div>
             </div>

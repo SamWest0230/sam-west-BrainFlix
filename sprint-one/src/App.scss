@@ -56,8 +56,10 @@ h5{
 }
 
 .desktopApp{
+    @include desktop{
     padding: $desktop-padding;
    display: flex;
+    }
 }
 
 .cheating{

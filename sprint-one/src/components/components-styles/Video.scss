@@ -83,7 +83,10 @@
         }
 
         &--views{
-            padding-right: 2rem;
+            padding: 0 2rem 0 .5rem;
+        }
+        &--likes{
+            padding-left: .5rem;
         }
     }
     &__description{

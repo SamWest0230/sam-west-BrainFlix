@@ -1,6 +1,7 @@
 @use '../.././partials/variables' as *;
 @use '../.././partials/mixins' as *;
 
+
 .header{
     padding: $mobile-padding;
     display: flex;
@@ -39,11 +40,14 @@
 
     }
     &__search{
+        background-image: url('../.././assets/icons/Icon-search.svg');
+        background-repeat: no-repeat;
+        background-position: 3% ;
         width: 100%;
         height: 48px;
         border: 1px solid $cp-silver;
         border-radius: 5px;
-        padding-left: 1rem;
+        padding-left: 2.5rem;
 
         @include tablet{
             width: 27vw;
