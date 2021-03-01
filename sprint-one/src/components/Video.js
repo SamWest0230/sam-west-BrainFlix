@@ -4,9 +4,9 @@ import likes1 from '.././assets/icons/Icon-likes.svg'
 import eye from '.././assets/icons/Icon-views.svg'
 function Video (props){
 
-    const {image, title, channel, timestamp, views, likes, description} = props.videos
+    const {title, channel, timestamp, views, likes, description} = props.videos
 
-    
+    //function taking the timestamp prop and turning it into a human date
         let newDay = (time) => {
         let day = time;
         let today = new Date(day)
@@ -15,7 +15,6 @@ function Video (props){
         const yyyy = today.getFullYear();
         today = `${mm}/${dd}/${yyyy}`;
         
-        // const newDate = new Date(day).toDateString(mm/dd/yyyy);
         return today;
         }
         return(
@@ -27,9 +26,9 @@ function Video (props){
             <h4 className="video__infobox--timestamp">{newDay(timestamp)}</h4>
             </div>
             <div className="video__stats">
-                <img src={eye} />
+                <img src={eye} alt='views icon' />
                 <h3 className="video__stats--views">{views}</h3>
-                <img src={likes1}/>
+                <img src={likes1} alt=''like icon/>
                 <h3 className='video__stats--likes'>{likes}</h3>
             </div>
             </div>

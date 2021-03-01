@@ -8,7 +8,7 @@ function Recommended(props) {
     return(
         <section className='recommended'>
         <div className='recommended__video' id={props.id}>
-            <img className='recommended__video--pic' src={props.image} onClick={props.videoselect}></img>
+            <img className='recommended__video--pic' src={props.image} onClick={props.videoselect} alt='video thumbnail'></img>
             <div className='recommended__video--info'>
                 <h3 className='recommended__video--info-title'>{props.title}</h3>
                 <h4>{props.channel}</h4>

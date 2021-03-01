@@ -6,7 +6,7 @@ function Form () {
         <section className="form">
         <h2 className='form__commentCounter'>3 comments</h2>
         <div className='form__container'>
-            <img className='form__container--pic' src={userPic}></img>
+            <img className='form__container--pic' src={userPic} alt="user Pic"></img>
             <form className='form__container--form'>
             <label className='form__container--label'><h4>JOIN THE CONVERSATION</h4></label>
             <input className='form__container--form-text' type='textarea'/>

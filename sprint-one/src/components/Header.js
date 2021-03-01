@@ -8,12 +8,12 @@ function Header(props) {
     return(
         <header className="header">
         <div className='header__container'>
-        <img className="header__container--logo" src={logo}></img>
+        <img className="header__container--logo" src={logo} alt='site logo'></img>
         </div>
         <input className="header__search" type="text" placeholder="Search..."></input>
         <div className="header__user"> 
         <button className="header__button">+ Upload</button>
-        <img className="header__userPic" src={userPic}></img>
+        <img className="header__userPic" src={userPic} alt='user Pic'></img>
         </div>
         </header>
     );
