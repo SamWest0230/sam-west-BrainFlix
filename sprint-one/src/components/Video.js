@@ -8,14 +8,16 @@ function Video (props){
     
         let newDay = (time) => {
         let day = time;
-        const newDate = new Date(day).toDateString();
-        console.log(newDate);
-        return newDate;
+        let today = new Date(day)
+        let dd = today.getDate();
+        let mm = today.getMonth()+1; 
+        const yyyy = today.getFullYear();
+        today = `${mm}/${dd}/${yyyy}`;
+        
+        // const newDate = new Date(day).toDateString(mm/dd/yyyy);
+        return today;
         }
         return(
-            <>
-            <video className="actualVideo" poster={image} controls></video>
-            
             <section className="video">
             <h1 className='video__title'>{title}</h1>
             <div className='video__div'>
@@ -34,7 +36,6 @@ function Video (props){
                 </div>
             </div>
             </section>
-            </>
 
         )
 

@@ -5,6 +5,23 @@
     object-fit: cover;
     width: 100%;
    height: 57vw; 
+
+   @include tablet{
+       width: 91vw;
+       height: 52vw;
+   }
+   @include desktop{
+       width: 73.7vw;
+       height: 42.1vw;
+   }
+}
+
+.actualVideoContainer{
+    @include tablet{
+    background-color: $cp-black;
+    display: flex;
+    justify-content: center;
+    }
 }
 
 
@@ -15,6 +32,9 @@
 
     @include tablet{
         padding: $tablet-padding;
+    }
+    @include desktop{
+        width: 55.6vw;
     }
 
     
@@ -58,6 +78,10 @@
             padding-bottom: 1.5rem;
         }
 
+        @include desktop{
+            padding-right: 2rem;
+        }
+
         &--views{
             padding-right: 2rem;
         }
@@ -73,6 +97,10 @@
         &--content{
             @include tablet{
                 width: 60vw;
+            }
+
+            @include desktop{
+                width: 41.2vw;
             }
         }
     }

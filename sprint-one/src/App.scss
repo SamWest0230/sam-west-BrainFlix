@@ -54,3 +54,16 @@ h5{
     line-height: 1.25rem;
     font-weight: 100;
 }
+
+.desktopApp{
+    padding: $desktop-padding;
+   display: flex;
+}
+
+.cheating{
+    display: none;
+    @include desktop{
+        display: block;
+    padding: 2.5rem 0 2.5rem 0;
+    }
+}

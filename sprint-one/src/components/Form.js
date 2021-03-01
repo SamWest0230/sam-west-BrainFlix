@@ -8,8 +8,8 @@ function Form () {
         <div className='form__container'>
             <img className='form__container--pic' src={userPic}></img>
             <form className='form__container--form'>
-            <label><h4>JOIN THE CONVERSATION</h4></label>
-            <input className='form__container--form-text' type='text'/>
+            <label className='form__container--label'><h4>JOIN THE CONVERSATION</h4></label>
+            <input className='form__container--form-text' type='textarea'/>
             <input className='form__container--form-btn' type='submit' value='COMMENT'/>
             </form>
         </div> 

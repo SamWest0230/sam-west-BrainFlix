@@ -7,7 +7,7 @@ import recommendedData from './Data/videos.json'
 import Video from './components/Video'
 import Form from './components/Form'
 import Comments from './components/Comments'
-
+import Actualvideo from './components/Actualvideo'
 class App extends React.Component {
 
 state = {
@@ -37,18 +37,23 @@ videoSelector = (id) => {
     <div className="App">
      <Header  />
      
+    <Actualvideo videos={this.state.selectedVideo}/>
 
-     <Video videos={this.state.selectedVideo}  />
-     
-     <Form />
+    <div className='desktopApp'>
+      <div>
+    <Video videos={this.state.selectedVideo}  />
+    <Form />
      
     <Comments listOfComments={retriveComments} />
-     
+     </div>
+     <div>
+      <h4 className='cheating'>NEXT VIDEO</h4>
     {listOfVideos.map(props =>{
     return(
     <Recommended videoselect={this.videoSelector} id={props.id} image={props.image} title={props.title} channel={props.channel} />
     ) })}
-
+    </div>
+    </div>
    
     </div>
   );

@@ -16,6 +16,9 @@
         flex-direction: row;
         align-items: center;
     }
+    @include desktop{
+        padding: $desktop-padding;
+    }
    
    
    
@@ -27,8 +30,11 @@
         height: 48px;
 
         @include tablet{
-            margin: 0 10.5rem 1rem 0;
+            padding: 0 10.5rem 1rem 0;
 
+        }
+        @include desktop{
+           padding: 0 31.8rem 0 0;
         }
 
     }
@@ -42,8 +48,12 @@
         @include tablet{
             width: 27vw;
             margin: 0 1.5rem 1rem 0;
-            height: 45px;
-            
+            height: 45px;   
+        }
+
+        @include desktop{
+            margin: 0 1.5rem 0 0;
+            height: 48px;
         }
     }
     &__user{
@@ -51,8 +61,8 @@
         justify-content: baseline;
         padding: .5rem 0 1rem 0;
 
-        @include tablet{
-      
+        @include desktop{
+            padding: 0;
         }
     }
     &__button{
@@ -66,9 +76,13 @@
             width: 15vw;
             height: 45px;
         }
+        @include desktop{
+            width: 9.5vw;
+
+        }
     }
     &__userPic{
-        margin-left: 1rem;
+        margin-left: 1.5rem;
         border-radius: 50%;
         width: 50px;
         height: 50px

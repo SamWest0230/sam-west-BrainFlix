@@ -1,12 +1,22 @@
 @use '../.././partials/variables' as *;
-
+@use '../.././partials/mixins' as *;
 
 .comments{
     padding: $mobile-padding;
+    @include tablet{
+        padding: $tablet-padding;
+    }
+    @include desktop{
+        width: 55.6vw;
+    }
     &__box{
         border-bottom: 1px solid $cp-silver;
         display: flex;
         padding: 1.5rem 0 1rem 0;
+
+        @include desktop{
+            
+        }
        
         &:first-child{
             border-top: 1px solid $cp-silver;
@@ -17,6 +27,9 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
+            @include tablet{
+                margin-right: 1rem;
+            }
         }
     }
     &__box2{
@@ -24,6 +37,15 @@
         flex-wrap: wrap;
         justify-content: space-between;
         width: 73vw;
+
+        @include tablet{
+            width: 81.2vw;
+            justify-content: flex-start;
+        }
+
+        &--date{
+            padding-left: 1rem;
+        }
 
 
         &--content{
@@ -33,5 +55,9 @@
     }
     &__cheating{
         padding: 2.5rem 0 2.5rem 0;
+
+        @include desktop{
+            display: none;
+        }
     }
 }
