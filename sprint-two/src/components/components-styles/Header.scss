@@ -1,0 +1,95 @@
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+
+
+.header{
+    padding: $mobile-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 52.8vw;
+
+    @include tablet{
+        padding: $tablet-padding;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    @include desktop{
+        padding: $desktop-padding;
+    }
+   
+   
+   
+   
+   
+    &__container{
+        display: flex;
+        align-items: center;
+        height: 48px;
+
+        @include tablet{
+            padding: 0 10.5rem 1rem 0;
+
+        }
+        @include desktop{
+           padding: 0 31.8rem 0 0;
+        }
+
+    }
+    &__search{
+        background-color: $cp-beige;
+        background-image: url('../.././assets/icons/Icon-search.svg');
+        background-repeat: no-repeat;
+        background-position: 3% ;
+        width: 100%;
+        height: 48px;
+        border: 1px solid $cp-silver;
+        border-radius: 5px;
+        padding-left: 2.5rem;
+
+        @include tablet{
+            width: 27vw;
+            margin: 0 1.5rem 1rem 0;
+            height: 45px;   
+        }
+
+        @include desktop{
+            margin: 0 1.5rem 0 0;
+            height: 48px;
+        }
+    }
+    &__user{
+        display: flex;
+        justify-content: baseline;
+        padding: .5rem 0 1rem 0;
+
+        @include desktop{
+            padding: 0;
+        }
+    }
+    &__button{
+        background-color: $cp-blue;
+        color: $cp-white;
+        width: 64vw;
+        border: none;
+        border-radius: 5px;
+
+        @include tablet{
+            width: 15vw;
+            height: 45px;
+        }
+        @include desktop{
+            width: 9.5vw;
+
+        }
+    }
+    &__userPic{
+        margin-left: 1.5rem;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px
+    }
+}
