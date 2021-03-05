@@ -5,6 +5,7 @@ import {api__url, api__key} from './ApiDetails'
 import './App.scss';
 import Homepage from './components/Homepage';
 import Upload from './components/Upload'
+import Header from './components/Header';
 
 class App extends React.Component{
 
@@ -34,14 +35,24 @@ componentDidMount = () => {
 };
 
 handelSubmit = (event) =>{
-  event.preventdefault();
+  event.preventDefault();
   console.log('hey')
 }
 
-// componentDidUpdate = (prevProps) => {
-//   const newID = this.props.match.params.id
-//  console.log(newID);
-// }
+componentDidUpdate = (prevProps) => {
+ const newID = this.props.match.params.videoid
+ const prevID = prevProps.match.params.videoid
+
+ if(newID !== prevID){
+   axios
+   .get(api__url + '/videos/' + newID + api__key)
+   .then((responce) => {
+     this.setState({
+       selectedVideo: responce.data
+     })
+   })
+ }
+}
 
 
   render(){
@@ -49,14 +60,15 @@ handelSubmit = (event) =>{
      return video.id !== this.state.selectedVideo.id;
     })
   return(
-    <BrowserRouter>
+    <>
+    <Header />
       <Switch>
       <Route path='/upload' component={Upload} />
-        <Route path='/:videoid' render={(routerProps) => <Homepage video={this.state.selectedVideo} commenting={this.handelSubmit} recommended={listOfVideos} {...routerProps} /> } />
-        <Route path='/' exact render={(routerProps) => <Homepage video={this.state.selectedVideo} commenting={this.handelSubmit}  recommended={listOfVideos} {...routerProps} /> } />
+        <Route path='/:videoid' render={(routerProps) => <Homepage video={this.state.selectedVideo} commenting={this.handelSubmit} recommended={listOfVideos}  /> } />
+        <Route path='/' exact render={(routerProps) => <Homepage video={this.state.selectedVideo} commenting={this.handelSubmit}  recommended={listOfVideos}  /> } />
       </Switch>
+    </>
     
-    </BrowserRouter>
    
   )
 

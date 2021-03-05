@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from './Header';
 import './components-styles/Upload.scss'
 import uploadPic from '../assets/images/Upload-video-preview.jpg'
 
 function Upload(){
     return(
         <>
-        <Header />
         <h1>Upload Video</h1>
         <div className='uploadPage--desktopOnly'>
         <div>
