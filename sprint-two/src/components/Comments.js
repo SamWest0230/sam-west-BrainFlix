@@ -7,8 +7,9 @@ import userPic2 from '.././assets/images/Mohan-muruge.jpg'
 
 
 class Comments extends React.Component{
-    
+   
     render(){
+        
         //function taking the timestamp prop and turning it into a human date
         let newDay = (time) => {
             let day = time;
@@ -20,7 +21,7 @@ class Comments extends React.Component{
 
             return today;
     }
-
+        let comment = this.props.comment.reverse();
     return(
         <div>
         <section className="form">
@@ -37,7 +38,7 @@ class Comments extends React.Component{
         </section>
    
         <section className='comments'>
-            {this.props.comment.map(props => {
+            {comment.map(props => {
             return(
             <div className='comments__box'key={props.id}>
                 <img className="comments__box--pic" src={userPic} alt='user Pic'></img>

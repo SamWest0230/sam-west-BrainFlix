@@ -1,7 +1,6 @@
 import React from 'react'
 import Recommended from './Recommended'
 import Video from './Video'
-import Form from './Form'
 import Comments from './Comments'
 import Actualvideo from './Actualvideo'
 import './components-styles/Homepage.scss'
@@ -18,9 +17,6 @@ function Homepage (props) {
                    <div className='homepage__desktop'>
                     <div>
                    <Video info={props.video} />
-                   
-                   {/* <Form video={props.video}  /> */}
-                   
                    
                    <Comments video={props.video} comment={props.comments} commenting={props.commenting} posting={props.posting} delete={props.delete}/>
                   
