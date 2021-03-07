@@ -12,7 +12,60 @@ class App extends React.Component {
   state = {
     videos: [],
     selectedVideo: [],
+    commentBox: ''
   }
+
+  handleChange = (event) => {
+    this.setState({
+        commentBox: event.target.value
+    })
+}
+
+
+handelSubmit = (event) =>{
+  event.preventDefault();
+  const id = this.state.selectedVideo.id
+  let comment = {
+      name: 'sam west',
+      comment: this.state.commentBox
+  }
+  axios
+   .post(api__url + '/videos/' + id + '/comments' + api__key, comment)
+   .then(() => {
+    axios
+      .get(api__url + '/videos/' + this.state.selectedVideo.id + api__key)
+      .then((responce) => {
+        this.setState({
+          selectedVideo: responce.data
+        })
+      })
+   })
+   .catch(error => {
+      console.log(error);         
+  })
+}
+
+
+
+
+ handleDelete = (id) =>{
+  axios
+  .delete(api__url + '/videos/' + this.state.selectedVideo.id + '/comments/' + id + api__key)
+  .then(() => {
+    axios
+      .get(api__url + '/videos/' + this.state.selectedVideo.id + api__key)
+      .then((responce) => {
+        this.setState({
+          selectedVideo: responce.data
+        })
+      })
+  })
+  
+  
+  .catch(error => {
+     console.log(error);         
+ })
+}
 
   componentDidMount = () => {
     axios
@@ -34,12 +87,10 @@ class App extends React.Component {
 
   };
 
-  componentDidUpdate = (prevProps, prevState) => {
+  componentDidUpdate = (prevProps) => {
     const newID = this.props.match.params.videoid
     const prevID = prevProps.match.params.videoid
-
-
-
+    const home = this.props.match.url
     if (newID !== prevID) {
       axios
         .get(api__url + '/videos/' + newID + api__key)
@@ -48,60 +99,41 @@ class App extends React.Component {
             selectedVideo: responce.data
           })
         })
-    }
-   
+      }
+      if (home === '/'){
+        axios
+          .get(api__url + '/videos/' + '1af0jruup5gu' + api__key)
+          .then((responce) => {
+            this.setState({
+              selectedVideo: responce.data
+            })
+          })
+        }
   }
+      
+  render() {
+    if (!this.state.selectedVideo.video)
+      return <p>Loading...</p>
+    const selectedComments = this.state.selectedVideo.comments;
+    const listOfVideos = this.state.videos.filter(video => {
+      return video.id !== this.state.selectedVideo.id;
 
-  handelSubmit = (event) =>{
-    const id = this.state.selectedVideo.id
-    event.preventDefault();
-    let comment = {
-        name: 'sam west',
-        comment: event.target.commentBox.value
-    }
-    axios
-     .post(api__url + '/videos/' + id + '/comments' + api__key, comment)
-     .then(() => {
-        this.setState({
-          selectedVideo: this.state.selectedVideo
-        })
-     })
-     .catch(error => {
-        console.log(error);         
     })
+
+    return (
+      <>
+        <Header />
+        <Switch>
+          <Route path='/upload' component={Upload} />
+          <Route path='/:videoid' render={(routerProps) => <Homepage video={this.state.selectedVideo} comments={selectedComments} commenting={this.handleChange} posting={this.handelSubmit} delete={this.handleDelete} recommended={listOfVideos} />} />
+          <Route path='/' exact render={(routerProps) => <Homepage video={this.state.selectedVideo} comments={selectedComments} commenting={this.handleChange} posting={this.handelSubmit}  delete={this.handleDelete}  recommended={listOfVideos} />} />
+        </Switch>
+      </>
+
+
+    )
+
   }
-
-  handleDelete = (id) =>{
-    console.log('hey')
-    console.log(id)
-     axios
-     .delete(api__url + '/videos/' + this.props.video.id + '/comments/' + id + api__key)
-  }
-  
-
-render(){
-  if (!this.state.selectedVideo.video)
-    return <p>Loading...</p>
-  const selectedComments = this.state.selectedVideo.comments;
-  const listOfVideos = this.state.videos.filter(video => {
-    return video.id !== this.state.selectedVideo.id;
-
-  })
-
-  return (
-    <>
-      <Header />
-      <Switch>
-        <Route path='/upload' component={Upload} />
-        <Route path='/:videoid' render={(routerProps) => <Homepage video={this.state.selectedVideo} comments={selectedComments} post={this.handelSubmit} delete={this.handleDelete} recommended={listOfVideos} />} />
-        <Route path='/' exact render={(routerProps) => <Homepage video={this.state.selectedVideo} comments={selectedComments} post={this.handelSubmit} delete={this.handleDelete} recommended={listOfVideos} />} />
-      </Switch>
-    </>
-
-
-  )
-
-}
 }
 export default App;
 

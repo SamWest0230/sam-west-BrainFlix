@@ -9,7 +9,9 @@ function Header(props) {
     return(
         <header className="header">
         <div className='header__container'>
+        <Link to={'/'}>
         <img className="header__container--logo" src={logo} alt='site logo'></img>
+        </Link> 
         </div>
         <input className="header__search" type="text" placeholder="Search..."></input>
         <div className="header__user"> 

@@ -1,0 +1,28 @@
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+
+.homepage{
+    
+    &__desktop{
+        @include desktop{
+        padding: $desktop-padding;
+        display: flex;
+        }
+    }
+
+    &__recommended{
+        @include desktop{
+            padding-top: 2.5rem;
+        }
+    }
+
+    &__cheating{
+        display: none;
+        @include desktop{
+            display: block;
+            padding-bottom: 3rem;
+        }
+    }
+
+}
+
