@@ -1,144 +1,109 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios'
-import {api__url, api__key} from './ApiDetails'
+import { api__url, api__key } from './ApiDetails'
 import './App.scss';
 import Homepage from './components/Homepage';
 import Upload from './components/Upload'
 import Header from './components/Header';
 
-class App extends React.Component{
+class App extends React.Component {
 
-  state= {
+  state = {
     videos: [],
-    selectedVideo: []
-}
+    selectedVideo: [],
+  }
 
-componentDidMount = () => {
-  axios
-  .get(api__url + '/videos' + api__key)
-  .then((response) => {
-      this.setState({
+  componentDidMount = () => {
+    axios
+      .get(api__url + '/videos' + api__key)
+      .then((response) => {
+        this.setState({
           videos: response.data
-      })
-      axios
-      .get(api__url + '/videos/' + this.state.videos[0].id + api__key)
-      .then((response2) => {
-          this.setState({
+        })
+        axios
+          .get(api__url + '/videos/' + this.state.videos[0].id + api__key)
+          .then((response2) => {
+            this.setState({
               selectedVideo: response2.data
-              
+
+            })
+
           })
-         
       })
-  })
-  
-};
 
-handelSubmit = (event) =>{
-  event.preventDefault();
-  console.log('hey')
-}
+  };
 
-componentDidUpdate = (prevProps) => {
- const newID = this.props.match.params.videoid
- const prevID = prevProps.match.params.videoid
+  componentDidUpdate = (prevProps, prevState) => {
+    const newID = this.props.match.params.videoid
+    const prevID = prevProps.match.params.videoid
 
- if(newID !== prevID){
-   axios
-   .get(api__url + '/videos/' + newID + api__key)
-   .then((responce) => {
-     this.setState({
-       selectedVideo: responce.data
+
+
+    if (newID !== prevID) {
+      axios
+        .get(api__url + '/videos/' + newID + api__key)
+        .then((responce) => {
+          this.setState({
+            selectedVideo: responce.data
+          })
+        })
+    }
+   
+  }
+
+  handelSubmit = (event) =>{
+    const id = this.state.selectedVideo.id
+    event.preventDefault();
+    let comment = {
+        name: 'sam west',
+        comment: event.target.commentBox.value
+    }
+    axios
+     .post(api__url + '/videos/' + id + '/comments' + api__key, comment)
+     .then(() => {
+        this.setState({
+          selectedVideo: this.state.selectedVideo
+        })
      })
-   })
- }
-}
-
-
-  render(){
-    const listOfVideos = this.state.videos.filter(video =>{
-     return video.id !== this.state.selectedVideo.id;
+     .catch(error => {
+        console.log(error);         
     })
-  return(
+  }
+
+  handleDelete = (id) =>{
+    console.log('hey')
+    console.log(id)
+     axios
+     .delete(api__url + '/videos/' + this.props.video.id + '/comments/' + id + api__key)
+  }
+  
+
+render(){
+  if (!this.state.selectedVideo.video)
+    return <p>Loading...</p>
+  const selectedComments = this.state.selectedVideo.comments;
+  const listOfVideos = this.state.videos.filter(video => {
+    return video.id !== this.state.selectedVideo.id;
+
+  })
+
+  return (
     <>
-    <Header />
+      <Header />
       <Switch>
-      <Route path='/upload' component={Upload} />
-        <Route path='/:videoid' render={(routerProps) => <Homepage video={this.state.selectedVideo} commenting={this.handelSubmit} recommended={listOfVideos}  /> } />
-        <Route path='/' exact render={(routerProps) => <Homepage video={this.state.selectedVideo} commenting={this.handelSubmit}  recommended={listOfVideos}  /> } />
+        <Route path='/upload' component={Upload} />
+        <Route path='/:videoid' render={(routerProps) => <Homepage video={this.state.selectedVideo} comments={selectedComments} post={this.handelSubmit} delete={this.handleDelete} recommended={listOfVideos} />} />
+        <Route path='/' exact render={(routerProps) => <Homepage video={this.state.selectedVideo} comments={selectedComments} post={this.handelSubmit} delete={this.handleDelete} recommended={listOfVideos} />} />
       </Switch>
     </>
-    
-   
+
+
   )
 
-  }
+}
 }
 export default App;
-  
-
-
-
-// class App extends React.Component {
-// //setting two states one for on page load to take the first video in the data file
-// //second state is used to access all the recommended videos
-// state = {
-//   selectedVideo: VideoData[0],
-//   recommendedVideos: recommendedData,
-// }
-// //function being called on click of the recommended videos to change state of the main video player and description
-// videoSelector = (id) => { 
-//   let clickedid = id.target.parentElement.id;
-//   const newSlectedVideo = VideoData.find(video =>{
-//     return video.id === clickedid;
-    
-//   });
-//   this.setState(
-//     {
-//       selectedVideo: newSlectedVideo,
-//     }
-//   )
-// }
-
-//   render(){
-//     //grabbing comments from the currently selected video
-//     const retriveComments = this.state.selectedVideo.comments;
-//     //generating a list of videos for the recommended section that does not include the current selected video
-//     
-//     })
-//   return (
-//     <div className="App">
-//      <Header  />
-     
-//     <Actualvideo videos={this.state.selectedVideo}/>
-
-//     <div className='desktopApp'>
-//       <div>
-//     <Video videos={this.state.selectedVideo}  />
-//     <Form />
-     
-//     <Comments listOfComments={retriveComments} />
-//      </div>
-//      <div>
-//       <h4 className='cheating'>NEXT VIDEO</h4>
-//     {listOfVideos.map(props =>{
-//     return(
-//     <Recommended videoselect={this.videoSelector} id={props.id} image={props.image} title={props.title} channel={props.channel} />
-//     ) })}
-//     </div>
-//     </div>
-   
-//     </div>
-//   );
-//   }
-  
-// }
-
-    
-
-// export default App;
-
-
 
 
 

@@ -1,4 +1,54 @@
-.uploadPage__video{
-    width: 90vw;
-    height: 47.8vw;
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+.upload{
+    padding: $mobile-padding;
+    border-top: 1px solid $cp-silver;
+
+
+    &__title{
+        padding: 1.5rem 0 2rem 0;
+    }
+    &__video{
+        width: 90vw;
+        height: 47.8vw;
+        border-radius: 5px;
+        margin-bottom: 2rem;
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &--title{
+            margin-bottom: 1.5rem;
+            width: 100%;
+            height: 12vw;
+            border: 1px solid $cp-silver;
+            border-radius: 5px;
+        }
+        &--description{
+            width: 100%;
+            height: 44.6vw;
+            border: 1px solid $cp-silver;
+            border-radius: 5px;
+        }
+        &--publish{
+            margin: 2rem 0 1.5rem 0;
+                background-color: $cp-blue;
+                color: $cp-white;
+                width: 100%;
+                height: 40px;
+                border: none;
+                border-radius: 5px;
+        }
+        &--cancel{
+            border:none;
+            color: $cp-blue;
+        }
+    }
 }
+
+
+
+

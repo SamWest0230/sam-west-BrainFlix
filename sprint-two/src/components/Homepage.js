@@ -9,14 +9,19 @@ import Actualvideo from './Actualvideo'
 
 
 function Homepage (props) {
-   
         return(
             <div className='homepage'>
 
                    <Actualvideo video={props.video} />
+                   
                    <Video info={props.video} />
-                   <Form handleSubmit={props.commenting}/>
-                   <Comments />
+                   
+                   <Form video={props.video} post={props.post} />
+                   
+                   
+                   <Comments comment={props.comments} delete={props.delete}/>
+                  
+                  
                    {props.recommended.map(video =>{
                        return(
                    <Recommended video={video} />
@@ -30,7 +35,7 @@ function Homepage (props) {
         )
     
 
-
+            // handleSubmit={props.commenting}
 
 
 }
