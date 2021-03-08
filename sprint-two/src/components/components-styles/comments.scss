@@ -52,6 +52,14 @@
             padding-top: .5rem;
             width: 100%;
         }
+        &--delete{
+            margin: .5rem 0 .5rem 0;
+            align-self: flex-end;
+            padding: .1rem;
+            border: 1px solid $cp-silver;
+            border-radius: 5px;
+            background-color: $cp-white;
+        }
     }
     &__cheating{
         padding: 2.5rem 0 2.5rem 0;

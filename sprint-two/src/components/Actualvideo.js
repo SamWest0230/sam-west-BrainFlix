@@ -1,17 +1,17 @@
 import React from 'react'
 import './components-styles/Video.scss'
 
-function Actualvideo (props) {
+function Actualvideo(props) {
 
     const { image } = props.video
 
-   
-    return(
+
+    return (
 
         <div className="actualVideoContainer">
-        <video className="actualVideo" poster={image} controls></video>
+            <video className="actualVideo" poster={image} controls></video>
         </div>
     )
-    
+
 }
 export default Actualvideo;

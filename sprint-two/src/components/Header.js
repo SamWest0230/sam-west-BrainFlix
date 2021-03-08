@@ -6,20 +6,20 @@ import './components-styles/Header.scss'
 
 
 function Header(props) {
-    return(
+    return (
         <header className="header">
-        <div className='header__container'>
-        <Link to={'/'}>
-        <img className="header__container--logo" src={logo} alt='site logo'></img>
-        </Link> 
-        </div>
-        <input className="header__search" type="text" placeholder="Search..."></input>
-        <div className="header__user"> 
-        <Link to={`upload`}>
-        <button className="header__button">+ Upload</button>
-        </Link>
-        <img className="header__userPic" src={userPic} alt='user Pic'></img>
-        </div>
+            <div className='header__container'>
+                <Link to={'/'}>
+                    <img className="header__container--logo" src={logo} alt='site logo'></img>
+                </Link>
+            </div>
+            <input className="header__search" type="text" placeholder="Search..."></input>
+            <div className="header__user">
+                <Link to={`upload`}>
+                    <button className="header__button">+ Upload</button>
+                </Link>
+                <img className="header__userPic" src={userPic} alt='user Pic'></img>
+            </div>
         </header>
     );
 }
