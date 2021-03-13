@@ -1,0 +1,106 @@
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+.form{
+    padding: $mobile-padding;
+
+    @include tablet{
+        padding: $tablet-padding;
+    }
+    @include desktop{
+        width: 55.6vw;
+    }
+
+
+    &__commentCounter{
+        padding-bottom: 2rem;
+    }
+
+    &__container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet{
+            padding:0 0 1.5rem 0;
+        }
+
+        &--label{
+            @include tablet{
+                width: 100%;
+            }
+        }
+
+        &--form{
+            display: flex;
+            flex-direction: column;
+
+            @include tablet{
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+
+            &-text{
+                padding: 0 0 0 1rem;
+                background-color: $cp-beige;
+                border: 1px solid $cp-silver;
+                border-radius: 5px;
+                align-self: flex-end;
+                margin-top: .3rem;
+                width: 66vw;
+                height: 25vw;
+
+                &:target{
+                    border: 3px solid $cp-blue;
+                }
+
+                @include tablet{
+                    width: 57.8vw;
+                    height: 7vw;
+                    margin-right: 1rem;
+                }
+
+                @include desktop{
+                    width: 34vw;
+                    height: 4vw;
+                }
+            }
+            &-btn{
+                margin: 1rem 0 1.5rem 0;
+                align-self: flex-end;
+                background-color: $cp-blue;
+                color: $cp-white;
+                width: 64vw;
+                max-width: 205px;
+                height: 40px;
+                border: none;
+                border-radius: 5px;
+
+                @include tablet{
+                    height: 7vw;
+                    width: 20vw;
+                    max-width: 190px;
+                    max-height: 60px;
+                    margin: 0;
+                }
+                @include desktop{
+                    width: 8vw;
+                    height: 3vw;
+                }
+            }
+        }
+
+        &--pic{
+            margin: 1.5rem .3rem 0 0;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+
+            @include tablet{
+                margin-right: .5rem;
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+}

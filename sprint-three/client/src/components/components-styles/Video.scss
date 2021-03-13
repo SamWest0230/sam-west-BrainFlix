@@ -1,0 +1,110 @@
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+
+.actualVideo{
+    object-fit: cover;
+    width: 100%;
+   height: 57vw; 
+
+   @include tablet{
+       width: 91vw;
+       height: 52vw;
+   }
+   @include desktop{
+       width: 73.7vw;
+       height: 42.1vw;
+   }
+}
+
+.actualVideoContainer{
+    @include tablet{
+    background-color: $cp-black;
+    display: flex;
+    justify-content: center;
+    }
+}
+
+
+.video{
+    padding: $mobile-padding;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet{
+        padding: $tablet-padding;
+    }
+    @include desktop{
+        width: 55.6vw;
+    }
+
+    
+
+    &__title{
+        padding: 2rem 0 1rem 0;
+
+        @include tablet{
+            padding: 3rem 0 1.5rem 0;
+        }
+    }
+
+    &__div{
+        @include tablet{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+    }
+
+    &__infobox{
+        display: flex;
+        align-items: center;
+        padding-bottom: 2rem;
+
+        @include tablet{
+            padding-bottom: 1.5rem;
+        }
+
+        &--timestamp{
+            padding-left: .5rem;
+        }
+    }
+
+    &__stats{
+        display: flex;
+        align-items: center;
+        padding-bottom: 1.5rem;
+
+        @include tablet{
+            padding-bottom: 1.5rem;
+        }
+
+        @include desktop{
+            padding-right: 2rem;
+        }
+
+        &--views{
+            padding: 0 2rem 0 .5rem;
+        }
+        &--likes{
+            padding-left: .5rem;
+        }
+    }
+    &__description{
+        border-top: 1px solid $cp-silver;
+        padding: 1.5rem 0 2.5rem 0;
+
+        @include tablet{
+            padding: 2.5rem 0 4rem 0;
+        }
+
+        &--content{
+            @include tablet{
+                width: 60vw;
+            }
+
+            @include desktop{
+                width: 41.2vw;
+            }
+        }
+    }
+}

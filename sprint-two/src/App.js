@@ -114,6 +114,7 @@ class App extends React.Component {
   }
 
   render() {
+    
     if (!this.state.selectedVideo.video)
       return <p>Loading...</p>
     const selectedComments = this.state.selectedVideo.comments;

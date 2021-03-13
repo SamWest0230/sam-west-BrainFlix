@@ -1,0 +1,60 @@
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+
+.recommended{
+    padding: $mobile-padding;
+
+    @include tablet{
+        padding: $tablet-padding;
+    }
+
+    @include desktop {
+    width: 28.7vw;
+    padding: 0;
+    }
+    &__video{
+        display: flex;
+        height: 70px;
+        margin-bottom: 2.5rem;
+
+        @include desktop{
+            margin-bottom: 2.5rem;
+        }
+
+        &--pic{
+            object-fit: cover;
+            border-radius: 5px;
+            width: 120px;
+            height: 70px;
+        }
+
+        &--info{
+            width: 48.75vw;
+          padding-left: 1rem;
+        
+
+          @include tablet{
+              width: 29.1vw;
+          }
+
+          @include desktop{
+              width: 14.3vw;
+          }
+
+          &-title{
+              padding-bottom: 1rem;
+
+              @include tablet{
+                  padding-bottom: .5rem;
+              }
+              @include desktop{
+                  padding-bottom: 0;
+              }
+          }
+        }
+        
+    }
+
+
+
+}

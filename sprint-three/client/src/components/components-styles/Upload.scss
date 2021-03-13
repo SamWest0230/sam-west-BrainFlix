@@ -1,0 +1,144 @@
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+.upload{
+    padding: $mobile-padding;
+    border-top: 1px solid $cp-mercury;
+
+    @include tablet{
+        padding: $tablet-padding;
+    }
+    @include desktop{
+        padding: $desktop-padding;
+    }
+
+
+    &__title{
+        padding: 1.5rem 0 2rem 0;
+
+        @include tablet{
+           padding: 3rem 0 2rem 0;
+        }
+    }
+    &--tablet{
+        @include tablet{
+            border-top: 2px solid $cp-mercury;
+            padding-top: 2.5rem;
+        }
+        @include desktop{
+            border-top: none;
+            padding: 0;
+        }
+    }
+    &--desktopOnly{
+        padding-bottom: 2.5rem;
+        border-bottom: 2px solid $cp-mercury;
+
+        @include desktop{
+            display: flex;
+        }
+        @include desktop{
+            padding-top: 2.5rem;
+            border-top: 2px solid $cp-mercury;
+        }
+    }
+    &__video{
+        width: 90vw;
+        height: 47.8vw;
+        border-radius: 5px;
+        margin-bottom: 2rem;
+
+        @include tablet{
+            width: 44.7vw;
+            height: 183px;
+            margin-bottom: 2.5rem;
+        }
+
+        @include desktop{
+            width: 26.5vw;
+            margin-right: 1.5rem;
+        }
+    }
+    
+    &__form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @include desktop{
+            width: 55.6vw;
+        }
+
+        &--title{
+            padding-left: 1.5rem;
+            background-color: $cp-beige;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            height: 12vw;
+            border: 1px solid $cp-mercury;
+            border-radius: 5px;
+
+            @include tablet{
+                height: 8vw;
+            }
+            @include desktop{
+                height: 5vw;
+            }
+        }
+        &--description{
+            padding: 1rem 0 0 1.5rem;
+            background-color: $cp-beige;
+            width: 100%;
+            height: 44.6vw;
+            border: 1px solid $cp-mercury;
+            border-radius: 5px;
+            resize: none;
+
+            @include tablet{
+                height: 30vw;
+            }
+            @include desktop{
+                height: 7vw;
+            }
+        }
+
+        &--publish{
+            margin: 2rem 0 1.5rem 0;
+                background-color: $cp-blue;
+                color: $cp-white;
+                width: 100%;
+                max-width: 320px;
+                height: 40px;
+                border: none;
+                border-radius: 5px;
+
+                @include tablet{
+                    align-self: flex-start;
+                    width: 160px;
+                    height: 50px;
+                }
+        }
+        &--cancel{
+            background-color: $cp-white;
+            border:none;
+            color: $cp-blue;
+
+            @include tablet{
+                margin-right: 3rem;
+            }
+        }
+    }
+    &__buttons{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet{
+            flex-direction: row-reverse;
+            margin-bottom: 5rem;
+        }
+    }
+}
+
+
+
+

@@ -1,0 +1,71 @@
+@use '../.././partials/variables' as *;
+@use '../.././partials/mixins' as *;
+
+.comments{
+    padding: $mobile-padding;
+    @include tablet{
+        padding: $tablet-padding;
+    }
+    @include desktop{
+        width: 55.6vw;
+    }
+    &__box{
+        border-bottom: 1px solid $cp-silver;
+        display: flex;
+        padding: 1.5rem 0 1rem 0;
+
+        @include desktop{
+            
+        }
+       
+        &:first-child{
+            border-top: 1px solid $cp-silver;
+        }
+
+        &--pic{
+            align-self: flex-start;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            @include tablet{
+                margin-right: 1rem;
+            }
+        }
+    }
+    &__box2{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 73vw;
+
+        @include tablet{
+            width: 81.2vw;
+            justify-content: flex-start;
+        }
+
+        &--date{
+            padding-left: 1rem;
+        }
+
+
+        &--content{
+            padding-top: .5rem;
+            width: 100%;
+        }
+        &--delete{
+            margin: .5rem 0 .5rem 0;
+            align-self: flex-end;
+            padding: .1rem;
+            border: 1px solid $cp-silver;
+            border-radius: 5px;
+            background-color: $cp-white;
+        }
+    }
+    &__cheating{
+        padding: 2.5rem 0 2.5rem 0;
+
+        @include desktop{
+            display: none;
+        }
+    }
+}
