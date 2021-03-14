@@ -25,10 +25,10 @@ function Video(props) {
                     <h2 className='vide0__infobox--channel'>{channel}</h2>
                     <h4 className="video__infobox--timestamp">{newDay(timestamp)}</h4>
                 </div>
-                <div className="video__stats">
+                <div className="video__stats" >
                     <img src={eye} alt='views icon' />
                     <h3 className="video__stats--views">{views}</h3>
-                    <img src={likes1} alt='like icon' onClick={() => props.likes} />
+                    <img src={likes1} alt='like icon' onClick={props.like} />
                     <h3 className='video__stats--likes'>{likes}</h3>
                 </div>
             </div>

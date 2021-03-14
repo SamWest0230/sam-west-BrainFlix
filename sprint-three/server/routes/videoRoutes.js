@@ -72,6 +72,8 @@ const videos = parseVideo();
 const specificVid = videos.find((video) => video.id === req.params.videoid);
 specificVid.likes++
 fs.writeFileSync("./Data/video-details.json", JSON.stringify(videos));
+res.json(specificVid+ 'liked');
+
 })
 
 module.exports = router;

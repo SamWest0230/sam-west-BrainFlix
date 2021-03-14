@@ -107,9 +107,8 @@ class App extends React.Component {
       })
   }
   handelLikes = () => {
-    console.log('hey')
     axios
-    .put(api__url + '/videos/' + this.state.selectedVideo.id + 'likes')
+    .put(api__url + '/videos/' + this.state.selectedVideo.id + '/likes')
     .then(() => {
       axios
         .get(api__url + '/videos/' + this.state.selectedVideo.id)
