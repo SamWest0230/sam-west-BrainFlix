@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios'
 import './App.scss';
 import Homepage from './components/Homepage';
@@ -16,7 +16,7 @@ class App extends React.Component {
     title: '',
     description: '',
   }
-
+  //this function is called in lifecycle methods. it gets the original data needed to render the page on load
   getVideos = () => {
 
     axios
@@ -83,13 +83,13 @@ class App extends React.Component {
         console.log(error);
       })
   }
-
+  // function that monitors the upload page input fields to dynamically update the state and use the values in the axios post request
   handleUploadChange = (event) => {
     this.setState({
       [event.target.name]: [event.target.value]
     })
   }
- 
+  //funnction used for uploading videos to the api server via axios
   handleUpload = () => {
     window.alert("Video Was Uploaded!");
     let vid = {
@@ -106,27 +106,29 @@ class App extends React.Component {
         console.log(error);
       })
   }
+
+  //function using a onClick to allow users to add likes to the videos via an axios put request 
   handelLikes = () => {
     axios
-    .put(api__url + '/videos/' + this.state.selectedVideo.id + '/likes')
-    .then(() => {
-      axios
-        .get(api__url + '/videos/' + this.state.selectedVideo.id)
-        .then((responce) => {
-          this.setState({
-            selectedVideo: responce.data
+      .put(api__url + '/videos/' + this.state.selectedVideo.id + '/likes')
+      .then(() => {
+        axios
+          .get(api__url + '/videos/' + this.state.selectedVideo.id)
+          .then((responce) => {
+            this.setState({
+              selectedVideo: responce.data
+            })
           })
-        })
-    })
-    .catch(error => {
-      console.log(error);
-    })
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
 
 
 
-  //a lifecycle method being used to trigger the original axios request to update state and render the data across the page
+  //a lifecycle method being used to trigger the original axios request to update state and render the data across the page. The function being called is defined above under state
   componentDidMount = () => {
     this.getVideos();
   }
@@ -147,6 +149,7 @@ class App extends React.Component {
           })
         })
     }
+    //the reason for writting this (home === '/' || home === '/upload') instead of (!newID) is because the upload page bugs out and fails the if statement below, causing an endless Loading... screen. this solution alows it to see a video in state and pass the check
     if (home === '/' || home === '/upload') {
       axios
         .get(api__url + '/videos/' + this.state.videos[0].id)
@@ -157,6 +160,9 @@ class App extends React.Component {
         })
     }
   }
+
+
+
   render() {
     if (!this.state.selectedVideo.video) {
       return <p>Loading...</p>

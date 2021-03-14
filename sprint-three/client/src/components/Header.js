@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from '.././assets/logos/Logo-brainflix.svg';
 import userPic from '.././assets/images/Mohan-muruge.jpg'
 import { Link } from 'react-router-dom';

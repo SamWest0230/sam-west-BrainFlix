@@ -2,12 +2,10 @@ import React from 'react'
 import './components-styles/Video.scss'
 import likes1 from '.././assets/icons/Icon-likes.svg'
 import eye from '.././assets/icons/Icon-views.svg'
-import {newDay} from './DateFunction'
+import { newDay } from './DateFunction'
 function Video(props) {
 
     const { title, channel, timestamp, views, likes, description } = props.info
-
-    // function taking the timestamp prop and turning it into a human date
     return (
         <section className="video">
             <h1 className='video__title'>{title}</h1>
