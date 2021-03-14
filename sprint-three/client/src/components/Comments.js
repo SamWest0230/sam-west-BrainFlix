@@ -3,24 +3,12 @@ import './components-styles/comments.scss'
 import userPic from '.././assets/images/150.png'
 import './components-styles/Form.scss'
 import userPic2 from '.././assets/images/Mohan-muruge.jpg'
-
+import {newDay} from './DateFunction'
 
 
 class Comments extends React.Component {
 
     render() {
-
-        //function taking the timestamp prop and turning it into a human date
-        let newDay = (time) => {
-            let day = time;
-            let today = new Date(day)
-            let dd = today.getDate();
-            let mm = today.getMonth() + 1;
-            const yyyy = today.getFullYear();
-            today = `${mm}/${dd}/${yyyy}`;
-
-            return today;
-        }
         //using the reverse method to have new comments posted to the top
         let comment = this.props.comment.reverse();
         return (

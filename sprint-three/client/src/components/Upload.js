@@ -27,7 +27,9 @@ class Upload extends React.Component{
                 <Link to={"/"}>
                     <button onClick={this.props.submit}  className="upload__form--publish">PUBLISH</button>
                 </Link>
+                <Link to={"/"}>
                 <button className="upload__form--cancel">CANCEL</button>
+                </Link>
             </div>
         </section>
 

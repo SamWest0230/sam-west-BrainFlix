@@ -16,7 +16,7 @@ function Header(props) {
             <input className="header__search" type="text" placeholder="Search..."></input>
             <div className="header__user">
                 <Link to={'upload'}>
-                    <button className="header__button">+ Upload</button>
+                    <button className="header__button">+ UPLOAD</button>
                 </Link>
                 <img className="header__userPic" src={userPic} alt='user Pic'></img>
             </div>

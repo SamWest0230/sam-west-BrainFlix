@@ -7,10 +7,12 @@
         padding: $tablet-padding;
     }
     @include desktop{
+        padding: 0;
         width: 55.6vw;
+        border-right: 1px solid $cp-mercury;
     }
     &__box{
-        border-bottom: 1px solid $cp-silver;
+        border-bottom: 1px solid $cp-mercury;
         display: flex;
         padding: 1.5rem 0 1rem 0;
 
@@ -19,7 +21,7 @@
         }
        
         &:first-child{
-            border-top: 1px solid $cp-silver;
+            border-top: 1px solid $cp-mercury;
         }
 
         &--pic{
@@ -44,6 +46,7 @@
         }
 
         &--date{
+            color: $cp-silver;
             padding-left: 1rem;
         }
 

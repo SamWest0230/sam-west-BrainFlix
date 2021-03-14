@@ -168,6 +168,7 @@ class App extends React.Component {
     })
 
     return (
+      //BrowserRouter is here its on the index page. Written this way to fix a weird bug I had
       <>
         <Header />
         <Switch>
