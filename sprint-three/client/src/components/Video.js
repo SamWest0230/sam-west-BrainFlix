@@ -28,7 +28,7 @@ function Video(props) {
                 <div className="video__stats">
                     <img src={eye} alt='views icon' />
                     <h3 className="video__stats--views">{views}</h3>
-                    <img src={likes1} alt='like icon' />
+                    <img src={likes1} alt='like icon' onClick={() => props.likes} />
                     <h3 className='video__stats--likes'>{likes}</h3>
                 </div>
             </div>

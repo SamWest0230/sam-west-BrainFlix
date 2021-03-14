@@ -26,7 +26,7 @@ class Comments extends React.Component {
         return (
             <div>
                 <section className="form">
-                    <h2 className='form__commentCounter'>3 comments</h2>
+                    <h2 className='form__commentCounter'>{comment.length} Comments</h2>
                     <div className='form__container'>
                         <img className='form__container--pic' src={userPic2} alt="user Pic"></img>
                         <form onSubmit={this.props.posting} className='form__container--form' name="form">

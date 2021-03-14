@@ -16,7 +16,7 @@ function Homepage(props) {
             <Actualvideo video={props.video} />
             <div className='homepage__desktop'>
                 <div>
-                    <Video info={props.video} />
+                    <Video info={props.video} likes={props.like} />
 
                     <Comments video={props.video} comment={props.comments} commenting={props.commenting} posting={props.posting} delete={props.delete} />
 

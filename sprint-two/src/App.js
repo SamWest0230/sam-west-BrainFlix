@@ -86,6 +86,7 @@ class App extends React.Component {
       .catch(error => {
         console.log(error);
       })
+      
   };
 //this lifecycle method is being used to compare urls via router props to see which video is currently active then fetching the data for that video (via id) and updating state 
 //the second if condition is allowing the logo to be used as a home link to always render the original video and its data
@@ -114,7 +115,7 @@ class App extends React.Component {
   }
 
   render() {
-    
+    console.log(this.state.selectedVideo)
     if (!this.state.selectedVideo.video)
       return <p>Loading...</p>
     const selectedComments = this.state.selectedVideo.comments;

@@ -6,11 +6,6 @@ import { Link } from 'react-router-dom'
 class Upload extends React.Component{
 
     render(){
-//alerting the user that they have uploaded a video (via windows alert)
-    let uploadAlert = () => {
-        window.alert("Video Was Uploaded!");
-    }
-
     return (
         <section className='upload'>
             <h1 className="upload__title">Upload Video</h1>
@@ -21,16 +16,16 @@ class Upload extends React.Component{
                 </div>
                 <form className="upload__form">
                     <label><h4>TITLE YOUR VIDEO</h4>
-                        <input className="upload__form--title" type='text' placeholder='add a title to your video' onChange={this.props.upload}></input>
+                        <input className="upload__form--title" type='text' placeholder='add a title to your video' name='title' onChange={this.props.upload}></input>
                     </label>
                     <label><h4>ADD A VIDEO DESCRIPTION</h4>
-                        <textarea className='upload__form--description' type='text' placeholder='add a description of your video' onChange={this.props.upload2}></textarea>
+                        <textarea className='upload__form--description' type='text' placeholder='add a description of your video' name='description' onChange={this.props.upload}></textarea>
                     </label>
                 </form>
             </div>
             <div className="upload__buttons">
                 <Link to={"/"}>
-                    <button onClick={() => uploadAlert, this.props.submit}  className="upload__form--publish">PUBLISH</button>
+                    <button onClick={this.props.submit}  className="upload__form--publish">PUBLISH</button>
                 </Link>
                 <button className="upload__form--cancel">CANCEL</button>
             </div>
